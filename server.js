@@ -148,7 +148,7 @@ app.use(subdomain('accounts', router));
 // 0 = HTTP
 // 1 = HTTPS with valid cert
 // else HTTPS invalid cert
-var x = 0;
+var x = 1;
 
 if (x == 0) {
 
