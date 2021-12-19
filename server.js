@@ -163,6 +163,7 @@ if (x == 0) {
     const server = https.createServer(httpsOptions, app).listen(port, () => {
         console.log('server running at ' + port)
     })
+    server.listen(port, () => console.log(`Example app listening on  http://localhost:${port}`));
 
 } else {
 
@@ -173,5 +174,6 @@ if (x == 0) {
     const server = https.createServer(httpsOptions, app).listen(port, () => {
         console.log('server running at ' + port)
     })
+    server.listen(port, () => console.log(`Example app listening on  http://localhost:${port}`));
 
 }
