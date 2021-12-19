@@ -70,20 +70,12 @@ app.get('/blitz', function(req, res) {
     res.sendFile(path.join(__dirname + '/blitz.html'));
 });
 
-app.get('/opzero', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opacity0.html'));
+app.get('/invisible', function(req, res) {
+    res.sendFile(path.join(__dirname + '/invisiblelogin.html'));
 });
 
-app.get('/opone', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opacity1.html'));
-});
-
-app.get('/optwo', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opacity2.html'));
-});
-
-app.get('/opthree', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opacity3.html'));
+app.get('/csrf', function(req, res) {
+    res.sendFile(path.join(__dirname + '/csrf.html'));
 });
 
 app.get('/same', function(req, res) {
@@ -93,21 +85,8 @@ app.get('/same', function(req, res) {
 app.get('/sameh', function(req, res) {
     res.sendFile(path.join(__dirname + '/same-origin-hid.html'));
 });
-
-app.get('/opsame1', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opsame1.html'));
-});
-
-app.get('/opsame2', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opsame2.html'));
-});
-
-app.get('/opsame3', function(req, res) {
-    res.sendFile(path.join(__dirname + '/opsame3.html'));
-});
-
-app.get('/csrf', function(req, res) {
-    res.sendFile(path.join(__dirname + '/csrf.html'));
+app.get('/sameop', function(req, res) {
+    res.sendFile(path.join(__dirname + '/same-origin-opacity.html'));
 });
 
 app.get('/cross', function(req, res) {
@@ -118,8 +97,8 @@ app.get('/crossh', function(req, res) {
     res.sendFile(path.join(__dirname + '/cross-origin-hid.html'));
 });
 
-app.get('/invisible', function(req, res) {
-    res.sendFile(path.join(__dirname + '/invisiblelogin.html'));
+app.get('/crossop', function(req, res) {
+    res.sendFile(path.join(__dirname + '/cross-origin-opacity1.html'));
 });
 
 app.post('/submit', function(req, res) {
@@ -148,7 +127,7 @@ app.use(subdomain('accounts', router));
 // 0 = HTTP
 // 1 = HTTPS with valid cert
 // else HTTPS invalid cert
-var x = 1;
+var x = 0;
 
 if (x == 0) {
 
@@ -157,8 +136,8 @@ if (x == 0) {
 } else if (x == 1) {
 
     const httpsOptions = {
-        key: fs.readFileSync('./server.key'),
-        cert: fs.readFileSync('./server.cert')
+        key: fs.readFileSync('./ssl/server.key'),
+        cert: fs.readFileSync('./ssl/server.cert')
     }
     const server = https.createServer(httpsOptions, app).listen(port, () => {
         console.log('server running at ' + port)
