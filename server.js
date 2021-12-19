@@ -98,7 +98,7 @@ app.get('/crossh', function(req, res) {
 });
 
 app.get('/crossop', function(req, res) {
-    res.sendFile(path.join(__dirname + '/cross-origin-opacity1.html'));
+    res.sendFile(path.join(__dirname + '/cross-origin-opacity.html'));
 });
 
 app.post('/submit', function(req, res) {
